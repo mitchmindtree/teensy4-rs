@@ -1,10 +1,19 @@
 //! USB device support
 
+#![allow(non_camel_case_types)]
+
+#[macro_use]
+mod generic;
+
+mod qh;
+
 use crate::pac;
 
 /// Initialize the USB PLL
 ///
-/// TODO hide this inside of a USB struct constructor
+/// TODO hide this inside of a USB struct constructor. This is exposed
+/// to maintain compatibility with the C USB implementation. Once the
+/// entire thing is in Rust, this shouldn't be exposed
 pub fn pll_init(ccm_analog: &pac::CCM_ANALOG) {
     loop {
         let pll = ccm_analog.pll_usb1.read();
