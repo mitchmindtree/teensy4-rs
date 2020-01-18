@@ -207,6 +207,10 @@ impl Peripherals {
         p.systick.clear_current();
         p.systick.enable_counter();
         p.systick.enable_interrupt();
+
+        let (_, ccm_analog) = p.ccm.handle.raw();
+        hal::usb::pll_init(ccm_analog);
+
         Peripherals {
             led: {
                 let pad = p.iomuxc.gpio_b0_03;

@@ -39,10 +39,6 @@
 
 #[link(name = "usbsys")]
 extern "C" {
-    /// Initialize the USB PLL and clocks.
-    ///
-    /// This must be invoked before `usb_init()`.
-    pub fn usb_pll_start();
     /// Initialize the USB module. Configures clocks, endpoints, and descriptors.
     pub fn usb_init();
     /// Runs the interrupt service routine.

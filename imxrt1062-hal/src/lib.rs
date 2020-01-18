@@ -25,6 +25,7 @@ pub mod iomuxc;
 pub mod pit;
 pub mod pwm;
 pub mod uart;
+pub mod usb;
 
 pub mod dcdc {
     use imxrt1062_pac as pac;

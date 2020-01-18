@@ -65,7 +65,6 @@ impl Logging {
             .map(|_| ::log::set_max_level(config.max_level))
             .unwrap();
         unsafe {
-            usbsys::usb_pll_start();
             usbsys::usb_init();
             cortex_m::peripheral::NVIC::unmask(crate::interrupt::USB_OTG1);
         }
