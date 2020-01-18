@@ -2,7 +2,6 @@
 /// the HAL's USB module in order to define USB device data structure
 /// access patterns. Effectively, we're writing an svd2rust-compatible
 /// API by hand.
-
 use core::marker;
 #[doc = "This trait shows that register has `read` method"]
 #[doc = ""]

@@ -6,6 +6,7 @@
 mod generic;
 
 mod qh;
+mod td;
 
 use crate::pac;
 
