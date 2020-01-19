@@ -1,9 +1,9 @@
-#[doc = "Reader of register ENDPTCTRL6"]
-pub type R = crate::R<u32, super::ENDPTCTRL6>;
-#[doc = "Writer for register ENDPTCTRL6"]
-pub type W = crate::W<u32, super::ENDPTCTRL6>;
-#[doc = "Register ENDPTCTRL6 `reset()`'s with value 0"]
-impl crate::ResetValue for super::ENDPTCTRL6 {
+#[doc = "Reader of register ENDPTCTRL%s"]
+pub type R = crate::R<u32, super::ENDPTCTRL>;
+#[doc = "Writer for register ENDPTCTRL%s"]
+pub type W = crate::W<u32, super::ENDPTCTRL>;
+#[doc = "Register ENDPTCTRL%s `reset()`'s with value 0"]
+impl crate::ResetValue for super::ENDPTCTRL {
     type Type = u32;
     #[inline(always)]
     fn reset_value() -> Self::Type {

@@ -8,6 +8,7 @@ This SVD has a few custom modifications:
 - It was reformatted using the provided `format.sh` script.
 - We implemented a `<cluster>` to represent each PWM submodule's register. Before that change, there were four independent submodules for each PWM module. Each submodule had its own name. When represented with a `<cluster>`, the auto-generated Rust code is nicer to work with.
 - The ADC data result registers were originally named `R[0]`, which conflicted with the `svd2rust` register reader type, `R`. We renamed these registers to `RESULT[0]`.
+- Use a dimensioned register to replace the redundant USB ENDPTCTRL registers. USB endpoint control registers 1 through 7 are all the same. The only outlier is `ENDPTCTRL0`. We replace `ENDPTCTRL1` through `7` with a single definition of the registers. `ENDPTCTRL0` is still unique.
 
 ## Generate the PAC supercrate
 

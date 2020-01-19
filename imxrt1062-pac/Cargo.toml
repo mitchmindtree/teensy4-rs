@@ -242,7 +242,7 @@ version = '0.1.0'
 
 [dependencies.imxrt1062-usb1]
 path = 'imxrt1062-usb1'
-version = '0.1.0'
+version = '0.2.0'
 
 [dependencies.imxrt1062-usbnc1]
 path = 'imxrt1062-usbnc1'

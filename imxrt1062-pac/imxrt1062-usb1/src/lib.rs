@@ -91,20 +91,20 @@ pub struct RegisterBlock {
     pub endptcomplete: ENDPTCOMPLETE,
     #[doc = "0x1c0 - Endpoint Control0"]
     pub endptctrl0: ENDPTCTRL0,
-    #[doc = "0x1c4 - Endpoint Control 1"]
-    pub endptctrl1: ENDPTCTRL1,
-    #[doc = "0x1c8 - Endpoint Control 2"]
-    pub endptctrl2: ENDPTCTRL2,
-    #[doc = "0x1cc - Endpoint Control 3"]
-    pub endptctrl3: ENDPTCTRL3,
-    #[doc = "0x1d0 - Endpoint Control 4"]
-    pub endptctrl4: ENDPTCTRL4,
-    #[doc = "0x1d4 - Endpoint Control 5"]
-    pub endptctrl5: ENDPTCTRL5,
-    #[doc = "0x1d8 - Endpoint Control 6"]
-    pub endptctrl6: ENDPTCTRL6,
-    #[doc = "0x1dc - Endpoint Control 7"]
-    pub endptctrl7: ENDPTCTRL7,
+    #[doc = "0x1c4 - Endpoint Control"]
+    pub endptctrl1: ENDPTCTRL,
+    #[doc = "0x1c8 - Endpoint Control"]
+    pub endptctrl2: ENDPTCTRL,
+    #[doc = "0x1cc - Endpoint Control"]
+    pub endptctrl3: ENDPTCTRL,
+    #[doc = "0x1d0 - Endpoint Control"]
+    pub endptctrl4: ENDPTCTRL,
+    #[doc = "0x1d4 - Endpoint Control"]
+    pub endptctrl5: ENDPTCTRL,
+    #[doc = "0x1d8 - Endpoint Control"]
+    pub endptctrl6: ENDPTCTRL,
+    #[doc = "0x1dc - Endpoint Control"]
+    pub endptctrl7: ENDPTCTRL,
 }
 impl RegisterBlock {
     #[doc = "0x154 - Frame List Base Address"]
@@ -549,80 +549,14 @@ impl crate::Readable for ENDPTCTRL0 {}
 impl crate::Writable for ENDPTCTRL0 {}
 #[doc = "Endpoint Control0"]
 pub mod endptctrl0;
-#[doc = "Endpoint Control 1\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl1](endptctrl1) module"]
-pub type ENDPTCTRL1 = crate::Reg<u32, _ENDPTCTRL1>;
+#[doc = "Endpoint Control\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl](endptctrl) module"]
+pub type ENDPTCTRL = crate::Reg<u32, _ENDPTCTRL>;
 #[allow(missing_docs)]
 #[doc(hidden)]
-pub struct _ENDPTCTRL1;
-#[doc = "`read()` method returns [endptctrl1::R](endptctrl1::R) reader structure"]
-impl crate::Readable for ENDPTCTRL1 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl1::W](endptctrl1::W) writer structure"]
-impl crate::Writable for ENDPTCTRL1 {}
-#[doc = "Endpoint Control 1"]
-pub mod endptctrl1;
-#[doc = "Endpoint Control 2\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl2](endptctrl2) module"]
-pub type ENDPTCTRL2 = crate::Reg<u32, _ENDPTCTRL2>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENDPTCTRL2;
-#[doc = "`read()` method returns [endptctrl2::R](endptctrl2::R) reader structure"]
-impl crate::Readable for ENDPTCTRL2 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl2::W](endptctrl2::W) writer structure"]
-impl crate::Writable for ENDPTCTRL2 {}
-#[doc = "Endpoint Control 2"]
-pub mod endptctrl2;
-#[doc = "Endpoint Control 3\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl3](endptctrl3) module"]
-pub type ENDPTCTRL3 = crate::Reg<u32, _ENDPTCTRL3>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENDPTCTRL3;
-#[doc = "`read()` method returns [endptctrl3::R](endptctrl3::R) reader structure"]
-impl crate::Readable for ENDPTCTRL3 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl3::W](endptctrl3::W) writer structure"]
-impl crate::Writable for ENDPTCTRL3 {}
-#[doc = "Endpoint Control 3"]
-pub mod endptctrl3;
-#[doc = "Endpoint Control 4\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl4](endptctrl4) module"]
-pub type ENDPTCTRL4 = crate::Reg<u32, _ENDPTCTRL4>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENDPTCTRL4;
-#[doc = "`read()` method returns [endptctrl4::R](endptctrl4::R) reader structure"]
-impl crate::Readable for ENDPTCTRL4 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl4::W](endptctrl4::W) writer structure"]
-impl crate::Writable for ENDPTCTRL4 {}
-#[doc = "Endpoint Control 4"]
-pub mod endptctrl4;
-#[doc = "Endpoint Control 5\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl5](endptctrl5) module"]
-pub type ENDPTCTRL5 = crate::Reg<u32, _ENDPTCTRL5>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENDPTCTRL5;
-#[doc = "`read()` method returns [endptctrl5::R](endptctrl5::R) reader structure"]
-impl crate::Readable for ENDPTCTRL5 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl5::W](endptctrl5::W) writer structure"]
-impl crate::Writable for ENDPTCTRL5 {}
-#[doc = "Endpoint Control 5"]
-pub mod endptctrl5;
-#[doc = "Endpoint Control 6\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl6](endptctrl6) module"]
-pub type ENDPTCTRL6 = crate::Reg<u32, _ENDPTCTRL6>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENDPTCTRL6;
-#[doc = "`read()` method returns [endptctrl6::R](endptctrl6::R) reader structure"]
-impl crate::Readable for ENDPTCTRL6 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl6::W](endptctrl6::W) writer structure"]
-impl crate::Writable for ENDPTCTRL6 {}
-#[doc = "Endpoint Control 6"]
-pub mod endptctrl6;
-#[doc = "Endpoint Control 7\n\nThis register you can [`read`](crate::generic::Reg::read), [`reset`](crate::generic::Reg::reset), [`write`](crate::generic::Reg::write), [`write_with_zero`](crate::generic::Reg::write_with_zero), [`modify`](crate::generic::Reg::modify). See [API](https://docs.rs/svd2rust/#read--modify--write-api).\n\nFor information about available fields see [endptctrl7](endptctrl7) module"]
-pub type ENDPTCTRL7 = crate::Reg<u32, _ENDPTCTRL7>;
-#[allow(missing_docs)]
-#[doc(hidden)]
-pub struct _ENDPTCTRL7;
-#[doc = "`read()` method returns [endptctrl7::R](endptctrl7::R) reader structure"]
-impl crate::Readable for ENDPTCTRL7 {}
-#[doc = "`write(|w| ..)` method takes [endptctrl7::W](endptctrl7::W) writer structure"]
-impl crate::Writable for ENDPTCTRL7 {}
-#[doc = "Endpoint Control 7"]
-pub mod endptctrl7;
+pub struct _ENDPTCTRL;
+#[doc = "`read()` method returns [endptctrl::R](endptctrl::R) reader structure"]
+impl crate::Readable for ENDPTCTRL {}
+#[doc = "`write(|w| ..)` method takes [endptctrl::W](endptctrl::W) writer structure"]
+impl crate::Writable for ENDPTCTRL {}
+#[doc = "Endpoint Control"]
+pub mod endptctrl;
