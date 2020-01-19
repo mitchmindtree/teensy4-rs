@@ -2,26 +2,32 @@
 
 use super::generic;
 
-#[repr(C)]
+#[repr(C, align(32))]
 pub struct TD {
     pub next_link_pointer: TD_POINTER,
     pub token: TOKEN,
     pub pointers: [BUFFER_POINTER; 5],
+    // There's 4 extra bytes of space here if needed
 }
 
-#[doc(hiddem)]
-pub struct _TD_POINTER;
-pub type TD_POINTER = generic::Reg<*const TD, _TD_POINTER>;
+pub type POINTER<T, REG> = generic::Reg<*mut T, REG>;
+impl<T, REG> generic::Writable for POINTER<T, REG> {}
+impl<T, REG> generic::Readable for POINTER<T, REG> {}
+impl<T, REG> generic::ResetValue for POINTER<T, REG> {
+    type Type = *mut T;
+    #[inline(always)]
+    fn reset_value() -> Self::Type {
+        core::ptr::null_mut()
+    }
+}
 
-impl generic::Writable for TD_POINTER {}
-impl generic::Readable for TD_POINTER {}
+#[doc(hidden)]
+pub struct _TD_POINTER;
+pub type TD_POINTER = POINTER<TD, _TD_POINTER>;
 
 #[doc(hidden)]
 pub struct _BUFFER_POINTER;
-pub type BUFFER_POINTER = generic::Reg<*const u8, _BUFFER_POINTER>;
-
-impl generic::Readable for BUFFER_POINTER {}
-impl generic::Writable for BUFFER_POINTER {}
+pub type BUFFER_POINTER = POINTER<u8, _BUFFER_POINTER>;
 
 #[doc(hidden)]
 pub struct _TOKEN;
