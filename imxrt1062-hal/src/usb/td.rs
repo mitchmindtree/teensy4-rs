@@ -23,7 +23,7 @@ impl<T, REG> generic::ResetValue for POINTER<T, REG> {
 
 #[doc(hidden)]
 pub struct _TD_POINTER;
-pub type TD_POINTER = POINTER<TD, _TD_POINTER>;
+pub type TD_POINTER = generic::Reg<u32, _TD_POINTER>;
 
 #[doc(hidden)]
 pub struct _BUFFER_POINTER;
@@ -124,6 +124,57 @@ pub mod token {
         #[inline(always)]
         pub fn status(&self) -> STATUS_R {
             STATUS_R::new((self.bits & 0xFF) as u8)
+        }
+    }
+}
+
+pub mod td_pointer {
+    use super::generic;
+    use super::TD_POINTER;
+
+    pub type W = generic::W<u32, TD_POINTER>;
+
+    impl generic::Writable for TD_POINTER {}
+
+    const NEXT_LINK_POINTER_SHIFT: u32 = 5;
+    const NEXT_LINK_POINTER_MASK: u32 = 0x7FFFFFF;
+
+    pub struct NEXT_LINK_POINTER_W<'w>(&'w mut W);
+    impl<'w> NEXT_LINK_POINTER_W<'w> {
+        /// Set the next transfer descriptor pointer to the provided transfer description pointer
+        ///
+        /// # Safety
+        ///
+        /// The memory pointed to by `ptr` must be aligned on a 32-byte boundary.
+        #[inline(always)]
+        pub unsafe fn ptr(self, ptr: *const super::TD) -> &'w mut W {
+            self.0.bits = (self.0.bits & !(NEXT_LINK_POINTER_MASK << NEXT_LINK_POINTER_SHIFT))
+                | (((ptr as u32) & NEXT_LINK_POINTER_MASK) << NEXT_LINK_POINTER_SHIFT);
+            self.0
+        }
+    }
+
+    const TERMINATE_SHIFT: u32 = 0;
+    bit_writer!(TERMINATE_W, TERMINATE_SHIFT);
+    impl<'w> TERMINATE_W<'w> {
+        #[inline(always)]
+        pub fn invalid(self) -> &'w mut W {
+            self.set_bit()
+        }
+        #[inline(always)]
+        pub fn valid(self) -> &'w mut W {
+            self.clear_bit()
+        }
+    }
+
+    impl W {
+        #[inline(always)]
+        pub fn next_link_pointer(&mut self) -> NEXT_LINK_POINTER_W {
+            NEXT_LINK_POINTER_W(self)
+        }
+        #[inline(always)]
+        pub fn terminate(&mut self) -> TERMINATE_W {
+            TERMINATE_W(self)
         }
     }
 }

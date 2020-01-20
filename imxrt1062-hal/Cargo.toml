@@ -28,6 +28,7 @@ imxrt1062-pac = { version = "0.2.0", path = "../imxrt1062-pac" }
 nb = "0.1.2"
 void = { version = "1.0.2", default-features = false }
 log = "0.4.8"
+usb-device = "0.2.3"
 vcell = "0.1.2"
 
 [lib]

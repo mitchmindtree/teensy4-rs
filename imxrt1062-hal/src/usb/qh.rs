@@ -6,7 +6,7 @@ use super::td;
 #[repr(C, align(64))] // Must be aligned on a 64-byte boundary
 pub struct QH {
     pub config: CONFIG,
-    pub current: td::TD_POINTER,
+    _current: u32,
     pub next: td::TD_POINTER,
     pub token: td::TOKEN,
     _pointers: [u32; 5],
