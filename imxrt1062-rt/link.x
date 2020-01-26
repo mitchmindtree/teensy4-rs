@@ -118,6 +118,11 @@ SECTIONS
     __flexram_bank_config = 0xAAAAAAAA | ((1 << (_itcm_block_count * 2)) - 1);
     /* We reconfigure the stack pointer based on the ITCM / DTCM separation */
     __estack = ORIGIN(DTCM) + ((16 - _itcm_block_count) << 15);
+
+    /* Range of the heap is from the end of the OCRAM region with DMA buffers, */
+    /* all the way to the end of OCRAM */
+    __sheap = ADDR(.dma) + SIZEOF(.dma);
+    __eheap = ORIGIN(RAM) + LENGTH(RAM);
 }
 
 /* Asserts that check some Rust requirements */
