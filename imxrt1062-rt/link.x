@@ -144,4 +144,7 @@ ERROR(imxrt1062-rt): .bss is not 4-byte aligned");
 ASSERT(__stext % 4 == 0 && __etext % 4 == 0, "
 ERROR(imxrt1062-rt): .text is not 4-byte aligned");
 
+ASSERT(__sheap % 4 == 0 && __eheap % 4 == 0, "
+ERROR(imxrt1062-rt: heap endpoints are not 4-byte aligned");
+
 ENTRY(image_vector_table);

@@ -1,0 +1,28 @@
+[package]
+name = "imxrt1062-alloc"
+version = "0.1.0"
+authors = ["Ian McIntyre <ianpmcintyre@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/mciantyre/teensy4-rs"
+description = """
+An implementation of GlobalAlloc for the iMXRT1062.
+Part of the teensy4-rs project.
+"""
+categories = [
+    "embedded",
+    "hardware-support",
+    "no-std",
+]
+keywords = [
+    "arm",
+    "cortex-m",
+    "imxrt1062",
+]
+
+[dependencies]
+linked_list_allocator = "0.6.5"
+
+[lib]
+bench = false
+test = false

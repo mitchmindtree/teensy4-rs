@@ -71,6 +71,7 @@ members = [
     'teensy4-fcb',
 ]
 exclude = [
+    'imxrt1062-alloc', # Requires nightly
     'tools',
     'imxrt1062-fcb-gen',
     'svd/imxrt1062',

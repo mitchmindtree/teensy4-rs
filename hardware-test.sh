@@ -15,12 +15,11 @@ BUILD_MODE="release"
 if [ "$2" = "--debug" ]; then
     BUILD_MODE_FLAG=""
     BUILD_MODE="debug"
-elif [ "$2" != "" ]; then 
-    echo "Unknown option '$2'"
-    exit 1
 fi
 
-cargo build $BUILD_MODE_FLAG -p teensy4-examples --bin $1
+if [ "$2" != "--skip-build" ]; then
+    cargo build $BUILD_MODE_FLAG -p teensy4-examples --bin $1
+fi
 rm -Rf out
 mkdir out
 cp target/thumbv7em-none-eabihf/$BUILD_MODE/$1 out/$1

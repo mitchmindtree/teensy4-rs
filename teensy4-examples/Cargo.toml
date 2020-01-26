@@ -19,6 +19,15 @@ nb = "0.1.2"
 panic-halt = "0.2.0"
 teensy4-bsp = { version = "0.1.0", path = "../teensy4-bsp" }
 
+[features]
+alloc = ["teensy4-bsp/alloc"] # Requires nightly
+
+[[bin]]
+name = "alloc"
+path = "src/alloc.rs"
+test = false
+bench = false
+
 [[bin]]
 name = "i2c"
 path = "src/i2c.rs"

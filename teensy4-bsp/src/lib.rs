@@ -100,6 +100,7 @@
 //!   continuous days, or risk a millisecond counter wrap-around.
 
 #![no_std]
+#![cfg_attr(feature = "alloc", feature(alloc_error_handler))]
 
 // Need to reference this so that it doesn't get stripped out
 extern crate teensy4_fcb;
@@ -115,6 +116,9 @@ pub type LED = hal::gpio::IO03<hal::gpio::GPIO7, hal::gpio::Output>;
 pub use hal::ccm::CCM;
 pub use hal::pac::PIT;
 pub use hal::pac::SYST;
+
+#[cfg(feature = "alloc")]
+use imxrt1062_alloc;
 
 /// Teensy pins that do not yet have a function
 ///
@@ -200,6 +204,10 @@ impl Peripherals {
     }
 
     fn new(mut p: hal::Peripherals) -> Peripherals {
+        #[cfg(feature = "alloc")]
+        unsafe {
+            imxrt1062_alloc::init();
+        }
         p.systick.disable_counter();
         p.systick
             .set_clock_source(cortex_m::peripheral::syst::SystClkSource::External);
@@ -294,4 +302,12 @@ mod systick {
 fn r#yield() {
     // 'yield' is a Rust keyword. But, it needs to be called 'yield' for the C USB stack
     cortex_m::asm::delay(1024);
+}
+
+#[cfg(feature = "alloc")]
+#[alloc_error_handler]
+fn oom(_: core::alloc::Layout) -> ! {
+    loop {
+        core::sync::atomic::spin_loop_hint();
+    }
 }
