@@ -1,6 +1,6 @@
 [package]
-name = "teensy4-rt"
-version = "0.1.0"
+name = "cortex-m-rt"
+version = "0.6.12"
 authors = ["Ian McIntyre <ianpmcintyre@gmail.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
