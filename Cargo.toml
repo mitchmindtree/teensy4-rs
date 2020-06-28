@@ -38,6 +38,16 @@ members = [
 [profile.release.build-override]
 opt-level = 0
 
+# Patch `cortex-m-rt` for reasons described here:
+# https://github.com/mciantyre/teensy4-rs#runtime
 [patch.crates-io.cortex-m-rt]
 git = "https://github.com/mciantyre/teensy4-rs"
 branch = "proto/rtic"
+# Patch `imxrt-hal` so that we may access the
+# `hal::Peripherals::steal` constructor. Use the
+# `mitchmindtree` branch in order to make sure we
+# use the crates.io instance of `imxrt-ral` as the
+# git dependency requires a bunch of code-gen steps.
+[patch.crates-io.imxrt-hal]
+git = "https://github.com/mitchmindtree/imxrt-rs"
+branch = "proto/rtic-backup"
