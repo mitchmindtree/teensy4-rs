@@ -12,9 +12,9 @@ Part of the teensy4-rs project.
 
 [dependencies]
 cortex-m = "0.6.2"
+cortex-m-rt = "0.6.12"
 log = "0.4.8"
 teensy4-fcb = { path = "teensy4-fcb" }
-teensy4-rt = { path = "teensy4-rt" }
 teensy4-usb-sys = { path = "teensy4-usb-sys" }
 
 [dependencies.imxrt-hal]
@@ -37,3 +37,7 @@ members = [
 # Helps with build times.
 [profile.release.build-override]
 opt-level = 0
+
+[patch.crates-io.cortex-m-rt]
+git = "https://github.com/mciantyre/teensy4-rs"
+branch = "proto/rtic"
